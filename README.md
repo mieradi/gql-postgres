@@ -8,9 +8,9 @@ I have seen a number of people unhappy with ORM's for various reasons, so I want
 
 ### Getting Started
 
-Head to https://www.postgresql.org/download/ and follow the docs to get Postgres setup ono your local machine.
+Head to https://www.postgresql.org/download/ and follow the docs to get Postgres setup on your local machine.
 
-In the root of your project, create an `.env` file and add the following variables:
+In the root of the project, create an `.env` file and add the following variables:
 
 ```
 POSTGRES_USER="your PG user name"
