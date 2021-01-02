@@ -4,7 +4,7 @@ export const resolvers = {
     getAllUsers: UserResolvers.getAllUsers,
     getUserById: UserResolvers.getUserById,
 },
-Mutation: {
+  Mutation: {
     createUser: UserResolvers.createUser,
     updateUserById: UserResolvers.updateUserById,
   }

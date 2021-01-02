@@ -31,7 +31,6 @@ export const typeDefs = gql`
         updated_at: DateType!
     }
 
-
     type Query {
         # User Queries
         getAllUsers: [User!]
