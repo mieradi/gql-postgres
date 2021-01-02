@@ -20,6 +20,8 @@ POSTGRES_PASSWORD="your PG password"
 DEV_URL="your dev URL" // usually http://localhost:4000
 ```
 
-`npm i` to install
+Head to the root of the project and run `npm i` to install
 
-Head to `http://localhost:4000/graphql` and run the following
+Once installed, run `npm start` to fire up the server. You should see a message saying that your server is running at `http://localhost:4000/graphql`;
+
+Head to `http://localhost:4000/graphql` and play around!
