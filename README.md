@@ -12,12 +12,13 @@ Head to https://www.postgresql.org/download/ and follow the docs to get Postgres
 
 In the root of the project, create an `.env` file and add the following variables:
 
-```
-POSTGRES_USER="your PG user name"
-POSTGRES_HOST="your host" // usually localhost
-POSTGRES_DB="your DB name"
-POSTGRES_PASSWORD="your PG password"
-DEV_URL="your dev URL" // usually http://localhost:4000
+```java
+POSTGRES_USER='your PG user name'
+POSTGRES_HOST='your host' // usually localhost
+POSTGRES_DB='your DB name'
+POSTGRES_PASSWORD='your PG password'
+PORT=5432 // default PG port
+DEV_URL='your dev URL' // usually http://localhost:4000
 ```
 
 Head to the root of the project and run `npm i` to install
