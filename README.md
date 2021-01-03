@@ -1,10 +1,6 @@
 # gql-postgres
 
-Example of a GraphQL Api using Postgres as a DB with no ORM
-
-### Motivation
-
-I have seen a number of people unhappy with ORM's for various reasons, so I wanted to create an example us just using `node-postgres` with GraphQL. ORM's are great, this is just another option 😊
+Example of a GraphQL Api using Postgres, with no ORM.
 
 ### Getting Started
 
@@ -18,10 +14,10 @@ POSTGRES_HOST='your host' // usually localhost
 POSTGRES_DB='your DB name'
 POSTGRES_PASSWORD='your PG password'
 PORT=5432 // default PG port
-DEV_URL='your dev URL' // usually http://localhost:4000
+DEV_URL='your GQL dev url' // usually http://localhost:4000
 ```
 
-Head to the root of the project and run `npm i` to install
+Head to the root of the project and run `npm i` to install.
 
 Once installed, run `npm start` to fire up the server. You should see a message saying that your server is running at `http://localhost:4000/graphql`.
 
