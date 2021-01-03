@@ -4,8 +4,9 @@ import { handleConfirmAndHashPassword, handleDateNow, handleParseUserDetails } f
 
 /**
 * @name create
-* @desc create new User
-* @returns user object
+* @name findAll
+* @name findOne
+* @name findOneAndUpdate
 */
 
 export const User =  {
