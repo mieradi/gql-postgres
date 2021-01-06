@@ -27,8 +27,8 @@ export const typeDefs = gql`
         first_name: String!
         last_name: String!
         email: String!
-        created_at: DateType!
-        updated_at: DateType!
+        created_at: String!
+        updated_at: String!
     }
 
     type Query {
