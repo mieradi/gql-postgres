@@ -1,6 +1,7 @@
 import { pool } from "../index";
 const { v4: uuidV4 } = require('uuid');
 import { handleConfirmAndHashPassword, handleDateNow, handleParseUserDetails } from "../Helpers";
+import { IUser } from "../types/UserType";
 
 /**
 * @name create
@@ -17,7 +18,7 @@ export const User =  {
     * @returns user object
     */
 
-   create: async (args:{ input:any }): Promise<void | {}> => {
+   create: async (args:{ input: IUser }, ): Promise<void | IUser> => {
 
         let { first_name, last_name, password, confirm_password, email } = args.input;
         // parse user details
@@ -45,7 +46,7 @@ export const User =  {
 
         // create User
         return await pool.query(query,values)
-        .then((data:any): Promise<{}> => data.rows[0])
+        .then((data:any): Promise<IUser> => data.rows[0])
         .catch((error:Error):void => console.error(error));
    },
 
@@ -55,11 +56,11 @@ export const User =  {
     * @returns array of user objects
     */
 
-    findAll: async ():Promise<void | []> => {
+    findAll: async ():Promise<void | IUser[]> => {
         const query = `SELECT * FROM users`;
 
         return await pool.query(query)
-        .then((data:any): Promise<[]> => data.rows)
+        .then((data:any): Promise<IUser[]> => data.rows)
         .catch((error:Error):void => console.error(error));
     },
 
@@ -70,13 +71,13 @@ export const User =  {
     * @returns user object or error
     */
 
-    findOne: async (id:string): Promise<void | {}> => {
+    findOne: async (id:string): Promise<void | IUser> => {
         const query = `SELECT * FROM users WHERE user_id = $1`;
 
         const values = [id];
 
         return await pool.query(query,values)
-        .then((data:any): Promise<{}> => data.rows[0])
+        .then((data:any): Promise<IUser> => data.rows[0])
         .catch((error:Error):void => console.error(error));
     },
 
@@ -87,7 +88,7 @@ export const User =  {
     * @returns updated user object
     */
 
-    findOneAndUpdate: async (id:string, args:{first_name:string,last_name:string,email:string}) => {
+    findOneAndUpdate: async (id:string, args:{first_name:string,last_name:string,email:string}): Promise<void | IUser> => {
           const query = `UPDATE users
                 SET first_name = $2, last_name = $3, email = $4, updated_at = $5
                 WHERE user_id = $1
@@ -97,7 +98,7 @@ export const User =  {
         const values = [id, args.first_name, args.last_name, args.email, handleDateNow()];
 
          return await pool.query(query,values)
-                .then((data:any): Promise<{}> => data.rows[0])
+                .then((data:any): Promise<IUser> => data.rows[0])
                 .catch((error:Error):void => console.error(error));
     }
 }
