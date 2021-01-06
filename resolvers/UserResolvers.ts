@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { User } from '../controllers/User';
+import { IUser } from '../types/UserType';
 
 /**
  * schema
@@ -17,7 +18,7 @@ export const UserResolvers = {
     * @returns returns desc
     */
 
-     createUser: async (parent:any, args:any, ctx:{req:any,res:any}, info:any): Promise<void | {}> => {
+     createUser: async (parent:any, args:any, ctx:{req:Request,res:Response}, info:any): Promise<void | IUser> => {
         return User.create(args);
     },
 
@@ -28,7 +29,7 @@ export const UserResolvers = {
     * @returns returns desc
     */
 
-      getAllUsers: async (parent:any, args:any, ctx:{req:Request,res:Response}, info:any): Promise<void | []> => {
+      getAllUsers: async (parent:any, args:any, ctx:{req:Request,res:Response}, info:any): Promise<void | IUser[]> => {
         return await User.findAll();
     },
 
@@ -39,7 +40,7 @@ export const UserResolvers = {
     * @returns returns desc
     */
 
-      getUserById: async (parent:any, args:any, ctx:{req:Request,res:Response}, info:any): Promise<void | {}> => {
+      getUserById: async (parent:any, args:any, ctx:{req:Request,res:Response}, info:any): Promise<void | IUser> => {
         const { user_id } = args;
         return await User.findOne(user_id);
     },
@@ -51,7 +52,7 @@ export const UserResolvers = {
     * @returns returns desc
     */
 
-      updateUserById: async (parent:any, args:any, ctx:{req:Request,res:Response}, info:any): Promise<void | {}> => {
+      updateUserById: async (parent:any, args:any, ctx:{req:Request,res:Response}, info:any): Promise<void | IUser> => {
          const data = {
              first_name: args.input.first_name,
              last_name: args.input.last_name,
